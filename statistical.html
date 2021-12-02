@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/statistical.css">
+  <style>
+    .m-statisical{
+    padding: 130px 0;
+    }
+
+  </style>
+</head>
+<body>
+
+    <header style="margin-bottom: 50px;">
+        <nav  id="js-nav" class="navbar navbar-fixed-top">
+          <div class="navbar-header">
+               <img class="logo"   src="./assets/img/Screenshot (596).png" alt="">
+          </div>
+         <div class="m-flex">
+          <form class="form-inline">
+            <div class="input-group">
+              <input type="email" class="form-control" style="width: 500px !important; margin-left: 150px; border-radius: 6px !important; overflow: hidden;" placeholder="Nhập từ khóa" required>
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-lg" style="color: #fff; font-size: 24px !important;">Tìm kiếm</button>
+              </div>
+            </div>
+          </form>
+          <div id="myNavbar">
+            <ul class="nav navbar-nav navbar-right m-nav">
+              <li><a href="index.html">TRANG CHỦ</a></li>
+              <li ><a id="js-login" style="cursor: pointer;">ĐĂNG NHẬP</a></li>
+              <li><a href="">THỐNG KÊ</a></li>
+              <li><a href="list_order.html">ĐƠN HÀNG</a></li>
+              <li><a href="index.html">ĐỐI TÁC</a></li>
+              <li><a href="#contact">LIÊN HỆ</a></li>
+            </ul>
+          </div>
+         </div>
+      </nav>
+      </header>
+
+    <div class="container-fluid" style="background-color: #fff;">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="m-statisical " id="statisical-month">
+                    <h2>THỐNG KÊ THEO THÁNG</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chLine-month" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-statisical" id="statisical-type">
+                    <h2>THỐNG KÊ THEO LOẠI</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chLine-type" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-statisical" id="statisical-status">
+                  <h2>THỐNG KÊ THEO TRẠNG THÁI</h2>
+                  <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="card col-sm-6">
+                        <div class="card-body">
+                            <canvas id="chDonut1"></canvas>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="m-statisical" id="statisical-local">
+                    <h2>THỐNG KÊ THEO KHU VỰC</h2>
+                    <div class="row">
+                      <div class="col-sm-3"></div>
+                      <div class="card col-sm-6">
+                          <div class="card-body">
+                              <canvas id="chDonut2"></canvas>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 m-sidebar">
+                <div class="m-position">
+                <h2>DANH MỤC</h2>
+                <ul class="nav m-sidebar-list">
+                    <li class="m-sidebar-item"><a id="js-statisical-month" href="#statisical-month"><button class="btn btn-lg btn-main">THỐNG KÊ THEO THÁNG</button></a></li>
+                    <li class="m-sidebar-item"><a href="#statisical-type"><button class="btn btn-lg btn-main">THỐNG KÊ THEO LOẠI</button></a></li>
+                    <li class="m-sidebar-item"><a href="#statisical-status"><button class="btn btn-lg btn-main">THỐNG KÊ THEO TRẠNG THÁI</button></a></li>
+                    <li class="m-sidebar-item"><a href="#statisical-local"><button class="btn btn-lg btn-main">THỐNG KÊ THEO KHU VỰC</button></a></li>
+                </ul>
+                <h2>ĐƠN HÀNG NỔI BẬT</h2>
+                <ul class="m-order-popular">
+                  <li class="m-order-popular-item">
+                    <img src="./assets/img/tải xuống.jpg" class="m-order-popular-img"></img>
+                    <div class="m-order-popular-content">
+                      <h3 class="m-order-popular-header">Son môi 3ce</h3>
+                      <span class="m-order-popular-quantity">Số lượng: 300 đơn</span>
+                    </div>
+                  </li>
+                  <li class="m-order-popular-item">
+                      <img src="./assets/img/3b067aa94ac0f698292b8e5e42c1d2a7.jpg" class="m-order-popular-img"></img>
+                      <div class="m-order-popular-content">
+                        <h3 class="m-order-popular-header">Đèn bảo vệ thị lực Rạng Đông</h3>
+                        <span class="m-order-popular-quantity">Số lượng: 200 đơn</span>
+                      </div>
+                  </li>
+                    <li class="m-order-popular-item">
+                      <img src="./assets/img/de20af10dbf76fe215e065dfb3bc0b6d.png.png" class="m-order-popular-img"></img>
+                      <div class="m-order-popular-content">
+                        <h3 class="m-order-popular-header">Mắt kính Nobita</h3>
+                        <span class="m-order-popular-quantity">Số lượng: 124 đơn</span>
+                      </div>
+                  </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div id="contact" class="container-fluid">
+          <div class="row">
+            <div class="col-sm-3">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14901.210216885887!2d105.77917022582575!3d20.98050577639076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1636470025033!5m2!1svi!2s" width="380" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="m-contact col-sm-4">
+              <p>Liên hệ cho chúng tôi theo thông tin dưới đây khi bạn muốn đặt hàng tại công ty hoặc có bất cứ thắc mắc gì về các đơn hàng</p>
+              <p><span class="glyphicon glyphicon-map-marker"></span> Hà Đông, Hà Nội</p>
+              <p><span class="glyphicon glyphicon-phone"></span> +0923498492</p>
+              <p><span class="glyphicon glyphicon-envelope"></span> email@gmail.com</p>
+            </div>
+            <div class="col-sm-5">
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <input class="form-control" id="name" name="name" placeholder="Têm" type="text" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <input class="form-control" id="email" name="email" placeholder="Địa chỉ Email" type="email" required>
+                </div>
+              </div>
+              <textarea class="form-control" id="comments" name="comments" placeholder="Để lại bình luận của bạn" rows="5"></textarea><br>
+              <div class="row">
+                <div class="col-sm-12 form-group">
+                  <button class="btn-group-lg btn-default btn-lg pull-right" type="submit">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <a href="#myPage" title="To Top">
+              <span class="glyphicon glyphicon-chevron-up"></span>
+            </a>
+            <p>@Copyright: Nguyễn Thị Mai </p>
+          </div>
+        </div>
+      </footer>
+<!-- login ------------------------- -->
+      <div class="wrap" id="js-login-modal">
+        <div   id="js-form" class="form-area container">
+          <div class="d-flex text-center">
+              <h2>ĐĂNG NHẬP</h2>
+          </div>
+          <!-- form đăng nhập -->
+          <div class="d-flex text-center form_container">
+              <form>
+                  <!-- tên đăng nhập -->
+                  <div class="form-group form-inline">
+                      <span class="input-group-text"><i class="fa fa-user"></i></span>
+                      <input class="form-control input_user" name="" placeholder="Tên đăng nhập" type="text" value="">
+                  </div>
+                  <!-- mật khẩu -->
+                  <div class="form-group form-inline">
+                      <span class="input-group-text"><i class="fa fa-key"></i></span>
+                      <input class="form-control input_pass" name="" placeholder="Mật khẩu" type="password" value="">
+                  </div>
+                  <!-- lưu đăng nhập -->
+                  <div class="form-group custom-control custom-checkbox">
+                      <input class="custom-control-input" id="customControlInline" type="checkbox" style="width: 20px;height: 20px;"> 
+                      <label class="custom-control-label" for="customControlInline" style="font-size: 20px; margin-left: 4px;">Lưu đăng nhập</label>
+                  </div>
+                  <!-- đăng nhập button -->
+                  <div class="d-flex text-center mt-3 login_container">
+                      <button class="btn-group-lg btn-lg login_btn" style="margin-bottom: 20px; width: 82%;" name="button" type="button">Đăng nhập</button>
+                  </div>
+              </form>
+          </div>
+          <!-- chưa có tài khoản -->
+          <div class="mt-4" style="font-size: 20px;">
+              <div class="d-flex text-center links" >
+                  Chưa có tài khoản?
+                  <a class="ml-2" href="#">Đăng ký</a>
+              </div>
+              <div class="d-flex text-center links">
+                  <a href="#">Quên mật khẩu?</a>
+              </div>
+          </div>
+      </div>
+      </div>
+
+
+
+  <script>
+
+
+// chart-------------------------------
+var colors = ['#e64057','#993348','#fa938a','#eb6d88', '#01c06e', '#c1e4c1', '#019e5c'];
+
+  // month
+  var chLineMonth= document.getElementById("chLine-month");
+  var chartData = {
+    labels: ["THÁNG 1", "THÁNG 2", "THÁNG 3", "THÁNG 4", "THÁNG 5", "THÁNG 6", "THÁNG 7", "THÁNG 8","THÁNG 9", "THÁNG 10", "THÁNG 11", "THÁNG 12"],
+    datasets: [{
+      data: [420, 690, 526, 541, 720, 714, 678, 594, 630, 677, 680,750],
+      backgroundColor: colors[6],
+      borderColor: colors[6],
+      borderWidth: 5,
+      label: "Tổng đơn hàng",
+    },]
+  };
+  if (chLineMonth) {
+    new Chart(chLineMonth, {
+    type: 'bar',
+    data: chartData,
+    options: {
+        plugins: {
+          legend: {
+              labels: {
+                font: {
+                    size: 20,
+                    color:"#000"
+                }
+              }
+          }
+        }
+    }
+      });
+  }
+
+
+  // type
+  var chLineType= document.getElementById("chLine-type");
+  var chartData = {
+    labels: ["THÁNG 1", "THÁNG 2", "THÁNG 3", "THÁNG 4", "THÁNG 5", "THÁNG 6", "THÁNG 7", "THÁNG 8","THÁNG 9", "THÁNG 10", "THÁNG 11", "THÁNG 12"],
+    datasets: [{
+      data: [200, 300, 100, 222, 324, 432, 401, 305, 212, 333, 344,470],
+      backgroundColor: colors[6],
+      borderColor: colors[6],
+      borderWidth: 5,
+      label: "Mỹ phẩm",
+    },
+    {
+      data: [100, 122, 250, 98, 187, 50, 44, 50, 111, 210,140, 220],
+      backgroundColor: colors[0],
+      borderColor: colors[0],
+      borderWidth: 5,
+      label: "Thời trang",
+      
+    },
+    {
+      data: [50, 100, 80, 150, 77, 92, 110, 210, 95, 100,69, 80],
+      backgroundColor: colors[1],
+      borderColor: colors[1],
+      borderWidth: 5,
+      label: "Gia dụng",
+      
+    },
+    {
+      data: [20, 45, 43, 50, 38, 22, 44, 90, 100, 45,90, 80],
+      backgroundColor: colors[5],
+      borderColor: colors[5],
+      borderWidth: 5,
+      label: "Điện tử",
+    },]
+  };
+  if (chLineType) {
+  new Chart(chLineType, {
+  type: 'line',
+  data: chartData,
+  options: {
+      plugins: {
+         legend: {
+            labels: {
+               font: {
+                  size: 20,
+                  color:"#000"
+               }
+            }
+         }
+      }
+   }   
+     });
+}
+
+
+// pie chart
+var donutOptions = {
+  cutoutPercentage: 80, 
+  legend: {position:'bottom', padding:5, labels: {pointStyle:'circle', usePointStyle:true}}
+};
+
+  // status 
+  var chDonutData1 = {
+      labels: ['Đã hoàn thành: 4200 đơn', 'Đang giao:400 đơn', 'Đã bị hủy: 250 đơn'],
+      datasets: [
+        {
+          backgroundColor: colors.splice(4,6),
+          borderWidth: 0,
+          data: [74,6,2]
+        }
+      ]
+  };
+  var chDonut1 = document.getElementById("chDonut1");
+  if (chDonut1) {
+    new Chart(chDonut1, {
+        type: 'pie',
+        data: chDonutData1,
+        options: {
+        plugins: {
+          legend: {
+              labels: {
+                font: {
+                    size: 20,
+                    color:"#000"
+                }
+              }
+          }
+        }
+    }   
+    });
+  }
+
+  // local
+  var chDonutData2 = {
+      labels: ['Miền Bắc:2300 đơn', 'Miền Trung: 1010 đơn', 'Miền Nam: 2000 đơn'],
+      datasets: [
+        {
+          backgroundColor: colors.splice(1,3),
+          borderWidth: 0,
+          data: [2300,1000,2000]
+        }
+      ]
+  };
+  var chDonut2 = document.getElementById("chDonut2");
+  if (chDonut2) {
+    new Chart(chDonut2, {
+        type: 'pie',
+        data: chDonutData2,
+        options: {
+        plugins: {
+          legend: {
+              labels: {
+                font: {
+                    size: 20,
+                    color:"#000"
+                }
+              }
+          }
+        }
+    }   
+    });
+  }
+
+
+
+// scroll smooth---------------------------
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+
+// login modal appear-------------------------
+document.getElementById('js-login').addEventListener('click',function(){
+  document.getElementById('js-login-modal').style.display = 'block'
+  document.getElementById('js-nav').style.background = 'rgba(0,0,0,0.01)'
+})
+document.getElementById('js-login-modal').addEventListener('click',function(){
+  document.getElementById('js-login-modal').style.display = 'none'
+  document.getElementById('js-nav').style.background = '#e64057'
+})
+document.getElementById('js-form').addEventListener('click',function(event){
+  event.stopPropagation()
+})
+
+
+
+  </script>
+</body>
+</html>

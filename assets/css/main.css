@@ -1,0 +1,245 @@
+@import url(./bootstrap.css);
+@import url(./login.css);
+@import url(./table.css);
+@import url(./paging.css);
+@import url(./sidebar.css);
+
+
+body{
+  color: #000;
+  background-color: #fff !important;
+}
+
+:root{
+  --main-color:#e64057;
+  --bold-color: #993348;
+  --fade-color: #fa938a;
+  --fade-color-sub: #eb6d88;
+}
+/* header ---------------------------- */
+.logo{
+  width: 116px;
+  border-radius: 20px;
+  margin: 5px 120px;
+}
+
+.navbar{
+  height: 80px;
+}
+
+#myNavbar{
+  font-size: 20px;
+  font-weight: 600;
+  padding-right: 120px;
+}
+
+.m-nav{
+  height: 80px;
+}
+
+
+.m-nav li a{
+  height: 100%;
+  padding: 0 30px;
+  line-height: 82px;
+}
+
+.m-flex{
+  display: flex;
+  justify-content: space-between;
+}
+.m-flex #myNavbar{
+  flex: 1;
+}
+.m-flex #myNavbar a{
+  padding:0 20px;
+
+}
+.m-flex .form-inline{
+  width: 500px;
+  position: relative;
+  bottom: 20px;
+  right: 40px;
+}
+
+
+.js-login:hover{
+  cursor: pointer !important;
+}
+
+
+.jumbotron{
+  padding-top: 150px;
+}
+
+
+
+
+.form-inline{
+  margin-top: 30px;
+}
+.input-group{
+  border-radius: 8px;
+  overflow: hidden;
+}
+.form-control{
+  height: 60px;
+  font-size: 20px;
+}
+
+.jumbotron .btn{
+  font-size: 30px !important;
+  text-transform: uppercase;
+}
+
+header .btn{
+  height: 60px;
+  background-color: var(--bold-color);
+  font-size: 18px;
+}
+
+
+.btn:hover{
+  background-color: rgba(153,51,72,0.7);
+  color: #fff;
+}
+/* content------------------------------------------------ */
+
+
+
+/* introduce--------------------------- */
+.m-introduce-header{
+  line-height: 1.66;
+  font-size: 26px;
+  padding: 0;
+  margin: 0;
+}
+
+.m-introduce-item{
+  font-size: 22px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.m-introduce-item i{
+  color: var(--main-color);
+  font-size: 40px;
+  padding-right: 10px;
+}
+
+
+
+h2{
+  font-size: 40px;
+  border: 3px solid var(--fade-color-sub);
+  padding: 20px 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.container-fluid{
+  padding: 80px 120px;
+  width: 2200px;
+  max-width: 100%;
+
+}
+
+/* partner----------------------------- */
+#partner img{
+  width: 85%;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.m-partner-item{
+  border-radius: 20px;
+  padding-bottom: 30px;
+ }
+ .m-partner-item:hover{
+   transform: scale(1.1);
+   cursor: pointer;
+
+ }
+
+.m-partner-name{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.m-partner-subtitle{
+  font-size: 20px;
+}
+
+#orderlist{
+  padding-bottom: 80px;
+}
+
+.m-see-more{
+  height: 70px;
+  width: 100%;
+}
+
+.m-btn-more{
+  padding:16px 40px; 
+  font-size: 32px; 
+  border-radius: 30px; 
+  border: 4px #fff solid;
+  margin: 30px 0 60px 0;
+}
+
+
+
+
+/* slider----------------------- */
+
+.m-slider-header{
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.m-slider-text{
+  margin: 0 !important;
+  font-size: 24px !important;
+}
+
+.m-slider-img{
+  margin-top: 10px;
+  width: 100% !important;
+  border-radius: 100px;
+}
+
+
+
+
+
+
+
+
+/* footer------------------------------------------------ */
+footer {
+  background-color: var(--main-color);
+  z-index: 100;
+  position: relative;
+}
+#contact{
+  background-color: var(--main-color);
+  color: #fff;
+  font-size: 20px;
+}
+#contact.container-fluid{
+  padding-bottom: 10px;
+} 
+
+#contact button{
+  margin-top: -30px;
+}
+.m-contact .glyphicon{
+  color: #fff;
+  font-size: 20px;
+}
+
+.glyphicon-chevron-up{
+  color: #fff !important;
+}
+

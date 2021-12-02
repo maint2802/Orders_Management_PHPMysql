@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ex_2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="./assets/img/Screenshot (597).png" type="image/x-icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./assets/css/main.css">
+
+</head>
+<!-- navbar changes to while background color when scroll to earch item -->
+<body  id="myPage" data-spy="scroll" data-target=".navbar">
+  <header>
+    <nav  id="js-nav" class="navbar navbar-fixed-top">
+        <div class="navbar-header">
+            <img class="logo" src="./assets/img/Screenshot (596).png" alt="">
+        </div>
+        <div id="myNavbar">
+          <ul class="nav navbar-nav navbar-right m-nav">
+            <li><a href="#myPage">TRANG CHỦ</a></li>
+            <li><a href="./admin/admin.php">QUẢN LÝ</a></li>
+            <li ><a id="js-login" style="cursor: pointer;">ĐĂNG NHẬP</a></li>
+            <li><a href="#introduce">GIỚI THIỆU</a></li>
+            <li><a href="#statistical">THỐNG KÊ</a></li>
+            <li><a href="#orderlist">ĐƠN HÀNG</a></li>
+            <li><a href="#partner">ĐỐI TÁC</a></li>
+            <li><a href="#contact">LIÊN HỆ</a></li>
+          </ul>
+        </div>
+    </nav>
+    
+    <div class="jumbotron text-center">
+      <h1>AQ.POST</h1> 
+      <p>QUẢN LÝ ĐƠN HÀNG</p> 
+      <form class="form-inline">
+        <div class="input-group">
+          <input type="email" class="form-control" size="60" placeholder="Nhập từ khóa" required>
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-lg">Tìm kiếm</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </header>
+
+
+<!-- Introduce----------------------------------->
+<div id="introduce" class="container-fluid text-center" style="background-color: #fff;">
+  <h2>GIỚI THIỆU VỀ AQ.POST</h2>
+  <br>
+   <div class="row slideanim">
+     <div class="col-sm-5">
+      <img src="./assets/img/Screenshot (596).png" alt="">
+     </div>
+     <div class="col-sm-7 text-left">
+       <h3 class="m-introduce-header"><span style="font-weight: bold;">AQ.POST</span> là phần mềm quản lý đơn hàng online được thiết kế riêng cho các nghiệp vụ quản lý thông tin đơn hàng. Phần mềm nổi bật với nhiều tính năng quản lý chuyên nghiệp, hỗ trợ Quản lý có thể quản lý đơn hàng online một cách hiệu quả nhất.  <div style="font-weight: bold;">Các tính năng chính của hệ thống:</div></h3>
+      
+       <ul class="list-unstyled m-introduce-list">
+         <li class="m-introduce-item"><i class="fas fa-caret-right"></i>Tra cứu tình trạng đơn hàng: dựa vào Mã đơn hàng</li>
+         <li class="m-introduce-item"><i class="fas fa-caret-right"></i>Thống kê đơn hàng theo danh mục: tháng, loại, khu vực, trạng thái</li>
+         <li class="m-introduce-item"><i class="fas fa-caret-right"></i>Xem danh sách các đơn hàng hôm nay đã được xuất kho</li>
+         <li class="m-introduce-item"><i class="fas fa-caret-right"></i>Tìm kiếm đơn hàng theo Mã đơn hàng hoặc tên sản phẩm</li>
+         <li class="m-introduce-item"><i class="fas fa-caret-right"></i>Xuất file Excel/PDf đơn hàng </li>
+       </ul>
+    </div>
+   </div>
+</div>
+
+<!-- Statistical -->
+<div id="statistical" class="container-fluid text-center">
+  <h2>Thống kê tình trạng đơn hàng</h2>
+  <br>
+      <div class="card">
+        <div class="card-body">
+            <canvas id="chLine-month" height="100"></canvas>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+     <div class="m-see-more">
+         <a href="statistical.html" class=" m-btn-more btn btn-danger" >XEM CÁC LOẠI THỐNG KÊ KHÁC<i class="fas fa-chevron-right" style="padding-left: 8px;"></i></a>
+     </div>
+</div>
+
+<!-- Order list -->
+<div id="orderlist" class="container-fluid text-center ">
+  <h2>Đơn hàng hôm nay</h2>
+  <br>
+    <table class="m-table slideanim">
+      <thead>
+        <tr>
+          <th class="text-center" style="width: 70px;">Stt</th>
+          <th class="text-center" style="width: 170px;" >Mã đơn hàng</th>
+          <th class="text-center" style="width: 240px;">Hình ảnh</th>
+          <th class="text-left" style="width: 400px;" >Tên đơn hàng</th>
+          <th class="text-left" style="width: 150px;"> Phân loại</th>
+          <th class="text-center" style="width: 120px;">Số lượng</th>
+          <th class="text-right" style="width: 200px; padding-right: 100px;">Hóa đơn</th>
+          <th class="text-left" style="width: 250px;">Công ty giao hàng</th>
+          <th class="text-left" >Tình trạng đơn hàng</th>
+         </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td class="text-center">1</td>
+              <td class="text-center">TT14444</td>
+              <td class="text-center"><img src="./assets/img/HX056D.jpg" alt=""></td>
+              <td class="text-left m-td-capi" >Áo Hoodie</td>
+              <td class="text-left m-td-capi">Thời trang</td>
+              <td class="text-center">2</td>
+              <td class="text-right" style="padding-right: 100px;">600.000đ</td>
+              <td class="text-left">VN Post</td>
+              <td class="text-left"><a href="order_item.html"  class="m-btn btn-lg btn-primary">Đang giao</a></td>
+          </tr>
+          <tr>
+            <td class="text-center">2</td>
+            <td class="text-center">TT14445</td>
+            <td class="text-center"><img src="./assets/img/2102b6474_black.1.png" alt=""></td>
+            <td class="text-left m-td-capi">Quần Shorts Thể Thao</td>
+            <td class="text-left m-td-capi">Thời trang</td>
+            <td class="text-center">1</td>
+            <td class="text-right" style="padding-right: 100px;">200.000đ</td>
+            <td class="text-left">VN Post</td>
+            <td class="text-left"><button class="btn-lg btn-primary">Đang giao</button></td>
+        </tr>
+        <tr>
+          <td class="text-center">3</td>
+          <td class="text-center">MP22399</td>
+          <td class="text-center"><img src="./assets/img/shopping (1).png" alt=""></td>
+          <td class="text-left m-td-capi">Kem Chống Nắng La Roche</td>
+          <td class="text-left m-td-capi">Mỹ phẩm</td>
+          <td class="text-center">1</td>
+          <td class="text-right" style="padding-right: 100px;">199.000đ</td>
+          <td class="text-left">Viettel Post</td>
+          <td class="text-left"><button class="btn-lg btn-success">Hoàn thành</button></td>
+         </tr>
+          <tr>
+            <td class="text-center">4</td>
+            <td class="text-center">GD12399</td>
+            <td class="text-center"><img src="./assets/img/3b067aa94ac0f698292b8e5e42c1d2a7.jpg" alt=""></td>
+            <td class="text-left m-td-capi">Đèn bàn bảo vệ thị lực Rạng Đông</td>
+            <td class="text-left m-td-capi">Gia dụng</td>
+            <td class="text-center">2</td>
+            <td class="text-right" style="padding-right: 100px;">310.000đ</td>
+            <td class="text-left">J&T Express</td>
+            <td class="text-left"><button class="btn-lg btn-success">Hoàn thành</button></td>
+          </tr>
+          <tr>
+            <td class="text-center">5</td>
+            <td class="text-center">DT09234</td>
+            <td class="text-center"><img src="./assets/img/fujifilm-x-a7-mint-500x500.jpg" alt=""></td>
+            <td class="text-left m-td-capi">Máy ảnh Fujifilm X-A7</td>
+            <td class="text-left m-td-capi">Điện tử</td>
+            <td class="text-center">1</td>
+            <td class="text-right" style="padding-right: 100px;">12.000.000đ</td>
+            <td class="text-left">247 Express </td>
+            <td class="text-left"><button class="btn-lg btn-danger">Đã bị hủy</button></td>
+          </tr>
+
+
+      </tbody>
+     </table>
+     <div class="m-see-more">
+         <a href="list_order.html" class=" m-btn-more btn btn-danger" >XEM DANH SÁCH ĐẦY ĐỦ <i class="fas fa-chevron-right" style="padding-left: 8px;"></i></a>
+     </div>
+</div>
+
+
+<!-- Partner -->
+<div id="partner" class="container-fluid text-center bg-grey">
+  <h2>đối tác phân phối đơn hàng</h2>
+  <h4>Những thương hiệu đáng tin cậy!</h4>
+
+  <div class="row text-center slideanim">
+    <div class="col-sm-3">
+      <div class="thumbnail  m-partner-item">
+        <img src="./assets/img/Logo-JT-Express-bg.png" alt="Paris" width="400" height="300">
+        <p class="m-partner-name">J&T Express</p>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail  m-partner-item">
+        <img src="./assets/img/logo-viettel-1.png" alt="Paris" width="400" height="300">
+        <p class="m-partner-name">Viettel Post</p>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail  m-partner-item">
+        <img src="./assets/img/Screenshot (600).png" alt="Paris" width="400" height="300">
+        <p class="m-partner-name">247 Express</p>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail  m-partner-item">
+        <img src="./assets/img/512x512bb.jpg" alt="Paris" width="400" height="300">
+        <p class="m-partner-name">VN Post</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+
+  <!-- Slider -->
+<div id="top3" class="container-fluid text-center">
+  <h2>TOP 3 TỈNH THÀNH</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- index -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- content -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h3 class="text-center m-slider-header">THANH HÓA</h3>
+        <h4 class="m-slider-text">700 đơn hàng</h4>
+        <img class="m-slider-img" src="./assets/img/ThanhHoa1.jpg" alt="">
+      </div>
+      <div class="item">
+        <h3 class="text-center m-slider-header">QUẢNG NINH</h3>
+        <h4 class="m-slider-text">540 đơn hàng</h4>
+        <img class="m-slider-img" src="./assets/img/hinh-nen-vinh-ha-long-quang-ninh-dep1.jpg" alt="">
+      </div>
+      <div class="item">
+        <h3 class="text-center m-slider-header">KHÁNH HÒA</h3>
+        <h4 class="m-slider-text">620 đơn hàng</h4>
+        <img class="m-slider-img" src="./assets/img/chua-linh-thieng-o-nha-trang1.jpg" alt="">
+      </div>
+    </div>
+
+    <!-- slider controls next -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- footer--------------------------------- -->
+<footer>
+  <div id="contact" class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14901.210216885887!2d105.77917022582575!3d20.98050577639076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accdd8a1ad71%3A0xa2f9b16036648187!2zSOG7jWMgdmnhu4duIEPDtG5nIG5naOG7hyBCxrB1IGNow61uaCB2aeG7hW4gdGjDtG5n!5e0!3m2!1svi!2s!4v1636470025033!5m2!1svi!2s" width="380" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="m-contact col-sm-4">
+        <p>Liên hệ cho chúng tôi theo thông tin dưới đây khi bạn muốn đặt hàng tại công ty hoặc có bất cứ thắc mắc gì về các đơn hàng</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span> Hà Đông, Hà Nội</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +0923498492</p>
+        <p><span class="glyphicon glyphicon-envelope"></span> email@gmail.com</p>
+      </div>
+      <div class="col-sm-5">
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="name" name="name" placeholder="Tên" type="text" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="email" name="email" placeholder="Địa chỉ Email" type="email" required>
+          </div>
+        </div>
+        <textarea class="form-control" id="comments" name="comments" placeholder="Để lại bình luận của bạn" rows="5"></textarea><br>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <button class="btn-group-lg btn-default btn-lg pull-right" type="submit">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+      <p>@Copyright: Nguyễn Thị Mai </p>
+    </div>
+  </div>
+</footer>
+
+<div class="wrap" id="js-login-modal">
+  <div   id="js-form" class="form-area container">
+    <div class="d-flex text-center">
+        <h2>ĐĂNG NHẬP</h2>
+    </div>
+    <!-- form đăng nhập -->
+    <div class="d-flex text-center ">
+        <form action="./admin/login_submit.php" method="POST">
+            <!-- tên đăng nhập -->
+            <div class="form-group form-inline ">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                <input class="form-control input_user" placeholder="Tên đăng nhập" type="text" name="username">
+            </div>
+            <!-- mật khẩu -->
+            <div class="form-group form-inline">
+                <span class="input-group-text"><i class="fa fa-key"></i></span>
+                <input class="form-control input_pass" placeholder="Mật khẩu" type="password" name="password">
+            </div>
+            <!-- lưu đăng nhập -->
+            <div class="form-group ">
+                <input class="" id="customControlInline" type="checkbox" style="width: 20px;height: 20px;"> 
+                <label class="" for="customControlInline" style="font-size: 20px; margin-left: 4px;">Lưu đăng nhập</label>
+            </div>
+            <!-- đăng nhập button -->
+            <div class="d-flex text-center mt-3 login_container">
+                <button class="btn-group-lg btn-lg login_btn" style="margin-bottom: 20px; width: 82%;" name="submit" type="submit">Đăng nhập</button>
+            </div>
+        </form>
+    </div>
+    <!-- chưa có tài khoản -->
+    <div class="mt-4" style="font-size: 20px;">
+        <div class="d-flex text-center links" >
+            Chưa có tài khoản?
+            <a class="ml-2" href="#">Đăng ký</a>
+        </div>
+        <div class="d-flex text-center links">
+            <a href="#">Quên mật khẩu?</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="./assets/js/main.js"></script>
+</body>
+</html>

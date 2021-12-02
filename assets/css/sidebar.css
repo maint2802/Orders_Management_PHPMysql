@@ -1,0 +1,91 @@
+
+
+
+.m-sidebar{
+    position: relative;
+    padding-left: 50px;
+}
+
+
+.m-position{
+    position: fixed;
+    width: 650px;
+}
+
+
+.m-sidebar-item{
+    margin: 8px 0;
+}
+
+.m-sidebar-item a{
+    padding: 0 !important;
+}
+
+
+.btn-main{
+    background-color:#fff;
+    color: #000;
+    font-size: 30px;
+    width: 650px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* 
+
+canvas{
+    height: 600px !important;
+}
+ */
+/* 
+canvas.chDonut1{
+    width: 600px !important;
+} */
+
+.card-body{
+    height: 600px;
+}
+
+
+.card{
+    height: 600px;
+}
+
+
+
+/* popular order */
+.m-order-popular{
+    padding: 0;
+}
+
+.m-order-popular-item{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 12px 0;
+    opacity: 0.7;
+}
+
+.m-order-popular-item:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+.m-order-popular-img{
+    height: 120px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.m-order-popular-content{
+    margin-left: 30px;
+}
+
+.m-order-popular-header{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.m-order-popular-quantity{
+    font-size: 26px;
+}
